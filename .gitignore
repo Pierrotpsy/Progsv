@@ -1,0 +1,12 @@
+
+# directories
+build
+tmp
+
+# system files
+.DS_Store
+*.swp
+
+# scons files
+.sconsign.dblite
+

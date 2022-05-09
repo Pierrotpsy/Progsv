@@ -1,0 +1,21 @@
+image: gcc
+
+before_script:
+  - apt-get update
+  - apt-get install -y python3-pip libsfml-dev scons
+
+compile:
+  stage: build
+  script:
+    - scons application
+  artifacts:
+    paths:
+      - build
+
+lint:
+  stage: build
+  script:
+    - pip3 install cpplint
+    - cpplint src/Animal/* src/Animal/NeuronalScorpion/* src/Environment/* src/Obstacle/*
+  allow_failure: true
+
